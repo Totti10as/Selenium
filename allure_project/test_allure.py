@@ -34,12 +34,12 @@ class TestGoogleSearch:
     @allure.feature('Search')
     @allure.story('Open google.com and search for Stas')
     @allure.severity('blocker')
-    def test_search_stas(self):
-        self.driver.get("https://www.google.com/?gl=us&hl=en&pws=0&gws_rd=cr")
-        self.driver.find_element_by_name("q").send_keys("Stas")
-        self.driver.find_element_by_name("btnK").submit()
+    def test_search_stas(self, test_setup):
+        driver.get("https://www.google.com/?gl=us&hl=en&pws=0&gws_rd=cr")
+        driver.find_element_by_name("q").send_keys("Stas")
+        driver.find_element_by_name("btnK").submit()
         with allure.step('Get screenshot'):
-            allure.attach(self.driver.get_screenshot_as_png(), name='Screenshot', attachment_type=AttachmentType.PNG)
+            allure.attach(driver.get_screenshot_as_png(), name='Screenshot', attachment_type=AttachmentType.PNG)
 
 
     # def test_teardown():
